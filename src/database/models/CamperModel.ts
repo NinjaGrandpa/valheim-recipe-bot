@@ -1,5 +1,11 @@
 import { Document, model, Schema } from "mongoose";
-import { ICamper } from "../../interfaces/ICamper";
+
+export interface ICamper extends Document{
+    discordId: string;
+    round: number;
+    day: number;
+    timestamp: number;
+}
 
 export const Camper = new Schema({
   discordId: String,
