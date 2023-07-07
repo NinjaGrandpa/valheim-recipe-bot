@@ -15,7 +15,7 @@ export const view: Command = {
     if (!targetCamper.day) {
       await interaction.editReply({
         content:
-          "It looks like you have not started the 100 Days of Code challenge yet. User '/100' and add your message to report your first day!",
+          "It looks like you have not started the 100 Days of Code challenge yet. User `/100` and add your message to report your first day!",
       });
       return;
     }
