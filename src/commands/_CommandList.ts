@@ -1,5 +1,6 @@
 import { Command } from "../interfaces/Command";
-import { oneHundred } from "./oneHundred";
 import { edit } from "./edit";
+import { oneHundred } from "./oneHundred";
+import { view } from "./view";
 
-export const CommandList: Command[] = [oneHundred, edit];
+export const CommandList: Command[] = [edit, oneHundred, view];

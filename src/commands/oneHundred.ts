@@ -30,8 +30,8 @@ export const oneHundred: Command = {
         iconURL: user.displayAvatarURL(),
       })
       .addFields(
-        { name: "Round", value: updatedCamper.round.toString() },
-        { name: "Day", value: updatedCamper.day.toString() }
+        { name: "Round", value: updatedCamper.round.toString(), inline: true },
+        { name: "Day", value: updatedCamper.day.toString(), inline: true }
       )
       .setFooter({
         text:
