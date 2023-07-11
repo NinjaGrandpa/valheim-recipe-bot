@@ -8,7 +8,7 @@ export interface FoodInterface extends Document {
   duration: number;
   biome: string;
   craftingStation: string;
-  recipe: Map<string, number>;
+  recipe?: Map<string, number>;
 }
 
 export const Food = new Schema({
@@ -16,10 +16,10 @@ export const Food = new Schema({
   health: Number,
   stamina: Number,
   healing: Number,
-  duartion: Number,
+  duration: Number,
   biome: String,
-  craftingStation: String,
-  recipe: { type: Map, of: String },
+  craftingStation: {type: String, default: "None"},
+  recipe: { type: Map, of: Number},
 });
 
 export default model<FoodInterface>("food", Food);
