@@ -1,7 +1,7 @@
 import { Command } from "../interfaces/Command";
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { getAllFoodRecipes } from "../modules/getAllFoodRecipes";
-import { EmbedFieldData, MessageEmbed } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 
 export const all: Command = {
   data: new SlashCommandBuilder()
@@ -12,7 +12,7 @@ export const all: Command = {
     await interaction.deferReply();
     const foodRecipes = await getAllFoodRecipes();
 
-    const recipeEmbed = new MessageEmbed()
+    const recipeEmbed = new EmbedBuilder()
       .setTitle("Food Recipes")
       .setDescription(
         `Showing all available food recipes. Current amount of recipies ${foodRecipes.length}`

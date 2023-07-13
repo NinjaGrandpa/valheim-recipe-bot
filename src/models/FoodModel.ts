@@ -18,8 +18,8 @@ export const Food = new Schema({
   healing: Number,
   duration: Number,
   biome: String,
-  craftingStation: {type: String, default: "None"},
-  recipe: { type: Map, of: Number},
+  craftingStation: { type: String, default: "None" },
+  recipe: { type: Map, of: Number },
 });
 
 export default model<FoodInterface>("food", Food);
