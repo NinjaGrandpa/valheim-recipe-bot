@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Black soup",
+    "health": 50,
+    "stamina": 17,
+    "healing": 3,
+    "duration": 1200,
+    "forkType": "Red",
+    "biome": "3: Swamp",
+    "craftingStation": "Cauldron (2)",
+    "recipe": {
+      "bloodbag": "1",
+      "honey": "1",
+      "turnip": "1"
+    }
+  },
+  {
+    "name": "Blueberries",
+    "health": 8,
+    "stamina": 25,
+    "healing": 1,
+    "duration": 600,
+    "forkType": "Yellow",
+    "biome": "2: Black Forest",
+    "craftingStation": "(Black Forest)"
+  },
+  {
+    "name": "Boar jerky",
+    "health": 23,
+    "stamina": 23,
+    "healing": 2,
+    "duration": 1800,
+    "forkType": "White",
+    "biome": "2: Black Forest",
+    "craftingStation": "Cauldron (1)",
+    "recipe": {
+      "boar meat": "1",
+      "honey": "1"
+    }
+  },
+  {
+    "name": "Carrot",
+    "health": 10,
+    "stamina": 32,
+    "healing": 1,
+    "duration": 900,
+    "forkType": "Yellow",
+    "biome": "2: Black Forest",
+    "craftingStation": "(Carrot seeds)"
+  },
+  {
+    "name": "Carrot soup",
+    "health": 15,
+    "stamina": 45,
+    "healing": 2,
+    "duration": 1500,
+    "forkType": "Yellow",
+    "biome": "2: Black Forest",
+    "craftingStation": "Cauldron (1)",
+    "recipe": {
+      "mushroom": "1",
+      "carrot": "3"
+    }
+  },
+  {
+    "name": "Cooked boar meat",
+    "health": 30,
+    "stamina": 10,
+    "healing": 2,
+    "duration": 1200,
+    "forkType": "Red",
+    "biome": "1: Meadows",
+    "craftingStation": "Cooking station",
+    "recipe": {
+      "boar meat": "1"
+    }
+  },
+  {
+    "name": "Cooked deer meat",
+    "health": 35,
+    "stamina": 12,
+    "healing": 2,
+    "duration": 1200,
+    "forkType": "Red",
+    "biome": "1: Meadows",
+    "craftingStation": "Cooking station",
+    "recipe": {
+      "deer meat": "1"
+    }
+  },
+  {
+    "name": "Cooked fish",
+    "health": 45,
+    "stamina": 15,
+    "healing": 2,
+    "duration": 1200,
+    "forkType": "Red",
+    "biome": "2: Black Forest",
+    "craftingStation": "Cooking station",
+    "recipe": {
+      "raw fish": "1"
+    }
+  },
+  {
+    "name": "Deer stew",
+    "health": 45,
+    "stamina": 15,
+    "healing": 3,
+    "duration": 1500,
+    "forkType": "Red",
+    "biome": "2: Black Forest",
+    "craftingStation": "Cauldron (1)",
+    "recipe": {
+      "blueberries": "1",
+      "carrot": "1",
+      "cooked deer meat": "1"
+    }
+  },
+  {
+    "name": "Grilled neck tail",
+    "health": 25,
+    "stamina": 8,
+    "healing": 2,
+    "duration": 1200,
+    "forkType": "Red",
+    "biome": "1: Meadows",
+    "craftingStation": "Cooking station",
+    "recipe": {
+      "neck tail": "1"
+    }
+  },
+  {
+    "name": "Honey",
+    "health": 8,
+    "stamina": 35,
+    "healing": 1,
+    "duration": 900,
+    "forkType": "Yellow",
+    "biome": "1: Meadows",
+    "craftingStation": "(Beehive)"
+  },
+  {
+    "name": "Muckshake",
+    "health": 16,
+    "stamina": 50,
+    "healing": 1,
+    "duration": 1200,
+    "forkType": "Yellow",
+    "biome": "3: Swamp",
+    "craftingStation": "Cauldron (2)",
+    "recipe": {
+      "ooze": "1",
+      "raspberries": "2",
+      "blueberries": "2"
+    }
+  },
+  {
+    "name": "Minced meat sauce",
+    "health": 40,
+    "stamina": 13,
+    "healing": 3,
+    "duration": 1200,
+    "forkType": "Red",
+    "biome": "2: Black Forest",
+    "craftingStation": "Cauldron (1)",
+    "recipe": {
+      "boar meat": "1",
+      "neck tail": "1",
+      "carrot": "1"
+    }
+  },
+  {
+    "name": "Raspberries",
+    "health": 7,
+    "stamina": 20,
+    "healing": 1,
+    "duration": 600,
+    "forkType": "Yellow",
+    "biome": "1: Meadows",
+    "craftingStation": "(Meadows)"
+  }
+]

@@ -21,7 +21,7 @@ export const Food = new Schema({
   forkType: String,
   biome: String,
   craftingStation: { type: String, default: "None" },
-  recipe: { type: Map, of: String },
+  recipe: { type: Map, of: String, default: {None: " "} },
 });
 
 export default model<FoodInterface>("food", Food);
