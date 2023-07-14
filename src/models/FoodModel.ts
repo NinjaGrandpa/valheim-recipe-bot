@@ -6,6 +6,7 @@ export interface FoodInterface extends Document {
   stamina: number;
   healing: number;
   duration: number;
+  forkType: string;
   biome: string;
   craftingStation: string;
   recipe?: Map<string, string>;
@@ -17,6 +18,7 @@ export const Food = new Schema({
   stamina: Number,
   healing: Number,
   duration: Number,
+  forkType: String,
   biome: String,
   craftingStation: { type: String, default: "None" },
   recipe: { type: Map, of: String },

@@ -48,6 +48,11 @@ export const all: Command = {
           inline: true,
         },
         {
+          name: "Fork Type",
+          value: foodRecipes[0].forkType,
+          inline: true,
+        },
+        {
           name: "Biome",
           value: foodRecipes[0].biome,
           inline: true,
@@ -68,7 +73,7 @@ export const all: Command = {
 
     recipeEmbed.addFields({
       name: "Recipe:",
-      value: `${ingredients}`
+      value: `${ingredients}`,
     });
 
     await interaction.editReply({ embeds: [recipeEmbed] });
