@@ -64,12 +64,6 @@ export const all: Command = {
 
     ingredientMap?.forEach((value, key) => {
       ingredients += `${key[0].toUpperCase()}${key.slice(1)}: x ${value}\n`;
-
-      //   recipeEmbed.addFields({
-      //     name: `${key[0].toUpperCase()}${key.slice(1)}`,
-      //     value: `x ${value}`,
-      //     inline: true,
-      //   });
     });
 
     recipeEmbed.addFields({
