@@ -24,6 +24,10 @@ export const all: Command = {
           inline: true,
         },
         {
+          name: "\u200B",
+          value: "\u200B",
+        },
+        {
           name: "Health",
           value: foodRecipes[0].health.toString(),
           inline: true,
@@ -54,6 +58,24 @@ export const all: Command = {
           inline: true,
         }
       );
+
+    const ingredientMap = foodRecipes[0].recipe;
+    let ingredients = "";
+
+    ingredientMap?.forEach((value, key) => {
+      ingredients += `${key[0].toUpperCase()}${key.slice(1)}: x ${value}\n`;
+
+      //   recipeEmbed.addFields({
+      //     name: `${key[0].toUpperCase()}${key.slice(1)}`,
+      //     value: `x ${value}`,
+      //     inline: true,
+      //   });
+    });
+
+    recipeEmbed.addFields({
+      name: "Recipe:",
+      value: `${ingredients}`
+    });
 
     await interaction.editReply({ embeds: [recipeEmbed] });
   },

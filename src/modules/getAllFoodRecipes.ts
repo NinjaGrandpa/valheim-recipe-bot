@@ -11,7 +11,7 @@ export const getAllFoodRecipes = async (): Promise<FoodInterface[]> => {
       duration: 600,
       biome: "Meadows",
       craftingStation: "None",
-      recipe: ["Raspberries", 1],
+      recipe: ["Raspberries", "1"],
     }));
 
   return foodRecipes;
