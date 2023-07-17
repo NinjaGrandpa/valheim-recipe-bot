@@ -102,6 +102,32 @@
     }
   },
   {
+    "name": "Cooked serpent meat",
+    "health": 70,
+    "stamina": 23,
+    "healing": 3,
+    "duration": 1500,
+    "forkType": "Red",
+    "biome": "3: Swamp",
+    "craftingStation": "Iron cooking station",
+    "recipe": {
+      "serpent meat": "1"
+    }
+  },
+  {
+    "name": "Cooked wolf meat",
+    "health": 45,
+    "stamina": 15,
+    "healing": 3,
+    "duration": 1200,
+    "forkType": "Red",
+    "biome": "4: Mountain",
+    "craftingStation": "Cooking station",
+    "recipe": {
+      "wolf meat": "1"
+    }
+  },
+  {
     "name": "Deer stew",
     "health": 45,
     "stamina": 15,
@@ -140,21 +166,6 @@
     "craftingStation": "(Beehive)"
   },
   {
-    "name": "Muckshake",
-    "health": 16,
-    "stamina": 50,
-    "healing": 1,
-    "duration": 1200,
-    "forkType": "Yellow",
-    "biome": "3: Swamp",
-    "craftingStation": "Cauldron (2)",
-    "recipe": {
-      "ooze": "1",
-      "raspberries": "2",
-      "blueberries": "2"
-    }
-  },
-  {
     "name": "Minced meat sauce",
     "health": 40,
     "stamina": 13,
@@ -170,13 +181,103 @@
     }
   },
   {
+    "name": "Muckshake",
+    "health": 16,
+    "stamina": 50,
+    "healing": 1,
+    "duration": 1200,
+    "forkType": "Yellow",
+    "biome": "3: Swamp",
+    "craftingStation": "Cauldron (2)",
+    "recipe": {
+      "ooze": "1",
+      "raspberries": "2",
+      "blueberries": "2"
+    }
+  },
+  {
+    "name": "Mushroom",
+    "health": 15,
+    "stamina": 15,
+    "healing": 1,
+    "duration": 900,
+    "forkType": "White",
+    "biome": "1: Meadows"
+  },
+  {
+    "name": "Queens jam",
+    "health": 14,
+    "stamina": 40,
+    "healing": 2,
+    "duration": 1200,
+    "forkType": "Yellow",
+    "biome": "3: Swamp",
+    "craftingStation": "Cauldron (1)",
+    "recipe": {
+      "raspberries": "8",
+      "blueberries": "6"
+    }
+  },
+  {
     "name": "Raspberries",
     "health": 7,
     "stamina": 20,
     "healing": 1,
     "duration": 600,
     "forkType": "Yellow",
-    "biome": "1: Meadows",
-    "craftingStation": "(Meadows)"
+    "biome": "1: Meadows"
+  },
+  {
+    "name": "Sausages",
+    "health": 55,
+    "stamina": 18,
+    "healing": 3,
+    "duration": 1500,
+    "forkType": "Red",
+    "biome": "3: Swamp",
+    "craftingStation": "Cauldron (2)",
+    "recipe": {
+      "entrails": "4",
+      "boar meat": "1",
+      "thistle": "1"
+    }
+  },
+  {
+    "name": "Serpent stew",
+    "health": 80,
+    "stamina": 26,
+    "healing": 4,
+    "duration": 1800,
+    "forkType": "Red",
+    "biome": "3: Swamp",
+    "craftingStation": "Cauldron (2)",
+    "recipe": {
+      "mushroom": "1",
+      "cooked serpent meat": "1",
+      "honey": "2"
+    }
+  },
+  {
+    "name": "Turnip stew",
+    "health": 18,
+    "stamina": 55,
+    "healing": 2,
+    "duration": 1800,
+    "forkType": "Yellow",
+    "biome": "3: Swamp",
+    "craftingStation": "Cauldron (2)",
+    "recipe": {
+      "boar meat": "1",
+      "turnip": "3"
+    }
+  },
+  {
+    "name": "Yellow mushroom",
+    "health": 10,
+    "stamina": 30,
+    "healing": 1,
+    "duration": 600,
+    "forkType": "Yellow",
+    "biome": "2: Black Forest"
   }
 ]

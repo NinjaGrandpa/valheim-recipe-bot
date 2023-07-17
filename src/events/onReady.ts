@@ -4,6 +4,9 @@ import { CommandList } from "../commands/_CommandList";
 import { Routes } from "discord-api-types/v10";
 
 export const onReady = async (Bot: Client) => {
+  console.log("Connecting to discord...");
+  
+  
   const rest = new REST({ version: "10" }).setToken(
     process.env.BOT_TOKEN as string
   );
