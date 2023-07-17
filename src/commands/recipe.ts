@@ -18,7 +18,6 @@ export const recipe: Command = {
     await interaction.deferReply();
 
     const nameInput = interaction.options.get("name", true);
-    console.log(nameInput.value);
     
     const foodRecipes = await getFoodRecipe(nameInput.value as string);
 
