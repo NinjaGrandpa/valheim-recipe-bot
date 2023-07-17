@@ -1,7 +1,7 @@
 import { Command } from "../interfaces/Command";
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { getFoodRecipe } from "../modules/getFoodRecipe";
-import { EmbedBuilder } from "discord.js";
+import { AttachmentBuilder, EmbedBuilder } from "discord.js";
 
 export const recipe: Command = {
   data: new SlashCommandBuilder()
@@ -18,12 +18,17 @@ export const recipe: Command = {
     await interaction.deferReply();
 
     const nameInput = interaction.options.get("name", true);
-    
+
     const foodRecipes = await getFoodRecipe(nameInput.value as string);
+
+    const attachment = new AttachmentBuilder(
+      `./src/images/${foodRecipes.name.replace(" ", "_")}.png`
+    );
 
     const recipeEmbed = new EmbedBuilder()
       .setTitle("Food Recipe")
       .setDescription(`Showing Recipe for ${foodRecipes.name}`)
+      .setThumbnail(`attachment://${foodRecipes.name.replace(" ", "_")}.png`)
       .addFields(
         {
           name: "Name",
@@ -83,6 +88,9 @@ export const recipe: Command = {
       value: `${ingredients}`,
     });
 
-    await interaction.editReply({ embeds: [recipeEmbed] });
+    await interaction.editReply({
+      embeds: [recipeEmbed],
+      files: [attachment],
+    });
   },
 };
