@@ -1,21 +1,55 @@
-import { Client, GatewayIntentBits } from "discord.js";
+import fs from "node:fs";
+import path from "node:path";
+import { Client, Collection, Events, GatewayIntentBits } from "discord.js";
 import { connectDatabase } from "./database/connectDatabase";
 import { validateEnv } from "./utils/validateEnv";
-import { onInteraction } from "./events/onInteraction";
-import { onReady } from "./events/onReady";
 
-(async () => {
-  if (!validateEnv()) return;
+// (async () => {
+// if (!validateEnv()) return;
 
-  const Bot = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-  Bot.on("ready", async () => onReady(Bot));
-  Bot.on(
-    "interactionCreate",
-    async (interaction) => await onInteraction(interaction)
-  );
+client.commands = new Collection();
 
-  await connectDatabase();
+const foldersPath = path.join(__dirname, "commands");
+const commandFolders = fs.readdirSync(foldersPath);
 
-  await Bot.login(process.env.BOT_TOKEN);
-})();
+commandFolders.forEach((folder) => {
+  const commandsPath = path.join(foldersPath, folder);
+  const commandFiles = fs
+    .readdirSync(commandsPath)
+    .filter((file) => file.endsWith(".js"));
+
+  for (const file of commandFiles) {
+    const filePath = path.join(commandsPath, file);
+    const command = require(filePath);
+
+    if ("data" in command && "execute" in command) {
+      client.commands.set(command.data.name, command);
+    } else {
+      console.log(
+        `[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`
+      );
+    }
+  }
+});
+
+const eventsPath = path.join(__dirname, "events");
+const eventFiles = fs
+  .readdirSync(eventsPath)
+  .filter((file) => file.endsWith(".js"));
+
+eventFiles.forEach((file) => {
+  const filePath = path.join(eventsPath, file);
+  const event = require(filePath);
+  if (event.once) {
+    client.once(event.name, (...args) => event.execute(...args));
+  } else {
+    client.on(event.name, (...args) => event.execute(...args));
+  }
+});
+
+connectDatabase();
+
+client.login(process.env.BOT_TOKEN);
+// })();

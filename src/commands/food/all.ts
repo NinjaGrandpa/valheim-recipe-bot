@@ -1,12 +1,11 @@
-import { Command } from "../interfaces/Command";
-import { getAllFoodRecipes } from "../modules/getAllFoodRecipes";
-import { EmbedBuilder, SlashCommandBuilder } from "discord.js";
+import { getAllFoodRecipes } from "../../modules/getAllFoodRecipes";
+import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from "discord.js";
 
-export const all: Command = {
+module.exports = {
   data: new SlashCommandBuilder()
     .setName("all")
     .setDescription("Shows all the available recipes."),
-  run: async (interaction) => {
+  async execute(interaction: CommandInteraction) {
     await interaction.deferReply();
 
     const foodRecipes = await getAllFoodRecipes();
@@ -16,16 +15,14 @@ export const all: Command = {
 
     let foodNames = "";
 
-    foodRecipes.forEach(food => {
-        foodNames += `${food.name}\n`;
+    foodRecipes.forEach((food) => {
+      foodNames += `${food.name}\n`;
     });
 
-    recipeEmbed.addFields(
-        {
-            name: "Food Recipes",
-            value: foodNames
-        }
-    );
+    recipeEmbed.addFields({
+      name: "Food Recipes",
+      value: foodNames,
+    });
 
     await interaction.editReply({ embeds: [recipeEmbed] });
   },

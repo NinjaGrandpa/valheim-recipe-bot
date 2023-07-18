@@ -1,9 +1,12 @@
-import { Command } from "../interfaces/Command";
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { getFoodRecipe } from "../modules/getFoodRecipe";
-import { AttachmentBuilder, EmbedBuilder } from "discord.js";
+import { getFoodRecipe } from "../../modules/getFoodRecipe";
+import {
+  AttachmentBuilder,
+  CommandInteraction,
+  EmbedBuilder,
+} from "discord.js";
 
-export const recipe: Command = {
+module.exports = {
   data: new SlashCommandBuilder()
     .setName("recipe")
     .setDescription("Shows information on the searched recipe.")
@@ -14,7 +17,7 @@ export const recipe: Command = {
         .setRequired(true)
     ),
 
-  run: async (interaction) => {
+  async execute(interaction: CommandInteraction) {
     await interaction.deferReply();
 
     const nameInput = interaction.options.get("name", true);
