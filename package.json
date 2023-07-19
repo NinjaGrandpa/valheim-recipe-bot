@@ -5,7 +5,8 @@
   "main": "./prod/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node -r dotenv/config ./prod/index.js"
+    "start": "node -r dotenv/config ./prod/index.js",
+    "lint": "eslint . --ext .ts"
   },
   "repository": "https://github.com/NinjaGrandpa/valheim-recipe-bot.git",
   "author": "NinjaGrandpa <max@jenslov.se>",
@@ -20,6 +21,9 @@
   },
   "devDependencies": {
     "@types/node": "^20.4.0",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "eslint": "^8.45.0",
     "typescript": "^5.1.6"
   }
 }
