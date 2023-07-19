@@ -36,14 +36,16 @@ module.exports = {
 
     const foodRecipes = await getFoodRecipe(nameInput.value as string);
 
+    const imageName = foodRecipes.name.replace(/ /g,"_");
+
     const attachment = new AttachmentBuilder(
-      `./src/images/${foodRecipes.name.replace(" ", "_")}.png`
+      `./src/images/${imageName}.png`
     );
 
     const recipeEmbed = new EmbedBuilder()
       .setTitle("Food Recipe")
       .setDescription(`Showing Recipe for ${foodRecipes.name}`)
-      .setThumbnail(`attachment://${foodRecipes.name.replace(" ", "_")}.png`)
+      .setThumbnail(`attachment://${imageName}.png`)
       .addFields(
         {
           name: "Name",
