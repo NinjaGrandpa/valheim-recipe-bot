@@ -2,9 +2,11 @@ import { SlashCommandBuilder } from "@discordjs/builders";
 import { getFoodRecipe } from "../../modules/getFoodRecipe";
 import {
   AttachmentBuilder,
+  AutocompleteInteraction,
   CommandInteraction,
   EmbedBuilder,
 } from "discord.js";
+import { getAllFoodRecipes } from "../../modules/getAllFoodRecipes";
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -14,9 +16,19 @@ module.exports = {
       option
         .setName("name")
         .setDescription("Input the name of a food item")
+        .setAutocomplete(true)
         .setRequired(true)
     ),
-
+  async autocomplete(interaction: AutocompleteInteraction) {
+    const focusedValue = interaction.options.getFocused();
+    const choices = await getAllFoodRecipes();
+    const filtered = choices.filter((choice) =>
+      choice.name.startsWith(focusedValue)
+    );
+    await interaction.respond(
+      filtered.map((choice) => ({ name: choice.name, value: choice.name }))
+    );
+  },
   async execute(interaction: CommandInteraction) {
     await interaction.deferReply();
 
