@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import fs from "node:fs";
 import path from "node:path";
-import { Client, Collection, Events, GatewayIntentBits } from "discord.js";
+import { Client, Collection, GatewayIntentBits } from "discord.js";
 import { connectDatabase } from "./database/connectDatabase";
-import { validateEnv } from "./utils/validateEnv";
 
 // (async () => {
 // if (!validateEnv()) return;

@@ -18,7 +18,7 @@ module.exports = {
 
         const commandData = client.commands.map((command) => command.data.toJSON());
 
-      const data = await rest.put(
+       await rest.put(
         Routes.applicationGuildCommands(
           client.user?.id || "missing id",
           process.env.GUILD_ID as string
