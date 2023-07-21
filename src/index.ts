@@ -11,7 +11,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.commands = new Collection();
 
-const foldersPath = path.join(__dirname, "commands");
+const foldersPath = path.join(__dirname, "../prod/commands");
 const commandFolders = fs.readdirSync(foldersPath);
 
 commandFolders.forEach((folder) => {
