@@ -36,21 +36,29 @@ module.exports = {
       ingredientInput?.value as string
     );
 
-    const recipeEmbed = new EmbedBuilder()
-      .setTitle("All Food Recipes")
-      .setDescription(`Showing all ${foodRecipes.length} food recipes`);
+    if (!foodRecipes || foodRecipes.length <= 0) {
+      const errorEmbed = new EmbedBuilder()
+        .setTitle("All Food Recipes Error")
+        .setDescription(`Can't find ingredient "${ingredientInput?.value}"`);
 
-    let foodNames = "";
+      await interaction.editReply({ embeds: [errorEmbed] });
+    } else {
+      const recipeEmbed = new EmbedBuilder()
+        .setTitle("All Food Recipes")
+        .setDescription(`Showing all ${foodRecipes.length} food recipes`);
 
-    foodRecipes.forEach((food) => {
-      foodNames += `${food.name}\n`;
-    });
+      let foodNames = "";
 
-    recipeEmbed.addFields({
-      name: "Food Recipes",
-      value: foodNames,
-    });
+      foodRecipes.forEach((food) => {
+        foodNames += `${food.name}\n`;
+      });
 
-    await interaction.editReply({ embeds: [recipeEmbed] });
+      recipeEmbed.addFields({
+        name: "Food Recipes",
+        value: foodNames,
+      });
+
+      await interaction.editReply({ embeds: [recipeEmbed] });
+    }
   },
 };

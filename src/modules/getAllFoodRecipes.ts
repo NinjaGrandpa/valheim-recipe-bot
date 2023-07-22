@@ -2,7 +2,7 @@ import FoodModel, { FoodInterface } from "../models/FoodModel";
 
 export const getAllFoodRecipes = async (
   ingredient?: string | null
-): Promise<FoodInterface[]> => {
+): Promise<FoodInterface[] | null> => {
   let foodRecipes: FoodInterface[];
 
   if (!ingredient) {

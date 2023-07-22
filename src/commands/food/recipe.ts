@@ -22,6 +22,9 @@ module.exports = {
   async autocomplete(interaction: AutocompleteInteraction) {
     const focusedValue = interaction.options.getFocused();
     const choices = await getAllFoodRecipes();
+
+    if (!choices) return;
+
     const filtered = choices.filter((choice) =>
       choice.name.startsWith(focusedValue)
     );
