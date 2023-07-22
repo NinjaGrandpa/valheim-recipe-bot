@@ -36,78 +36,83 @@ module.exports = {
 
     const foodRecipes = await getFoodRecipe(nameInput.value as string);
 
-    const imageName = foodRecipes.name.replace(/ /g,"_");
+    if (!foodRecipes) {
+      const errorEmbed = new EmbedBuilder()
+        .setTitle("Food Recipe Error")
+        .setDescription(`Can't find food recipe: ${nameInput.value}.`);
+      await interaction.editReply({ embeds: [errorEmbed] });
+    } else {
+      const imageName = foodRecipes.name.replace(/ /g, "_");
 
-    const attachment = new AttachmentBuilder(
-      `./src/images/${imageName}.png`
-    );
+      const attachment = new AttachmentBuilder(`./src/images/${imageName}.png`);
 
-    const recipeEmbed = new EmbedBuilder()
-      .setTitle("Food Recipe")
-      .setDescription(`Showing Recipe for ${foodRecipes.name}`)
-      .setThumbnail(`attachment://${imageName}.png`)
-      .addFields(
-        {
-          name: "Name",
-          value: foodRecipes.name,
-          inline: true,
-        },
-        {
-          name: "\u200B",
-          value: "\u200B",
-        },
-        {
-          name: "Health",
-          value: foodRecipes.health.toString(),
-          inline: true,
-        },
-        {
-          name: "Stamina",
-          value: foodRecipes.stamina.toString(),
-          inline: true,
-        },
-        {
-          name: "Healing",
-          value: foodRecipes.healing.toString(),
-          inline: true,
-        },
-        {
-          name: "Duration",
-          value: foodRecipes.duration.toString(),
-          inline: true,
-        },
-        {
-          name: "Fork Type",
-          value: foodRecipes.forkType,
-          inline: true,
-        },
-        {
-          name: "Biome",
-          value: foodRecipes.biome,
-          inline: true,
-        },
-        {
-          name: "Crafting Station",
-          value: foodRecipes.craftingStation,
-          inline: true,
-        }
-      );
+      const recipeEmbed = new EmbedBuilder()
+        .setTitle("Food Recipe")
+        .setDescription(`Showing Recipe for ${foodRecipes.name}`)
+        .setThumbnail(`attachment://${imageName}.png`)
+        .addFields(
+          {
+            name: "Name",
+            value: foodRecipes.name,
+            inline: true,
+          },
+          {
+            name: "\u200B",
+            value: "\u200B",
+          },
+          {
+            name: "Health",
+            value: foodRecipes.health.toString(),
+            inline: true,
+          },
+          {
+            name: "Stamina",
+            value: foodRecipes.stamina.toString(),
+            inline: true,
+          },
+          {
+            name: "Healing",
+            value: foodRecipes.healing.toString(),
+            inline: true,
+          },
+          {
+            name: "Duration",
+            value: foodRecipes.duration.toString(),
+            inline: true,
+          },
+          {
+            name: "Fork Type",
+            value: foodRecipes.forkType,
+            inline: true,
+          },
+          {
+            name: "Biome",
+            value: foodRecipes.biome,
+            inline: true,
+          },
+          {
+            name: "Crafting Station",
+            value: foodRecipes.craftingStation,
+            inline: true,
+          }
+        );
 
-    const ingredientMap = foodRecipes.recipe;
-    let ingredients = "";
+      const ingredientMap = foodRecipes.recipe;
+      let ingredients = "";
 
-    ingredientMap?.forEach((value, key) => {
-      ingredients += `${key[0].toUpperCase()}${key.slice(1)}: x ${value}\n`;
-    });
+      ingredientMap?.forEach((value, key) => {
+        ingredients += `${key[0].toUpperCase()}${key.slice(1)}: x ${value}\n`;
+      });
 
-    recipeEmbed.addFields({
-      name: "Recipe:",
-      value: `${ingredients}`,
-    });
+      recipeEmbed.addFields({
+        name: "Recipe:",
+        value: `${ingredients}`,
+      });
 
-    await interaction.editReply({
-      embeds: [recipeEmbed],
-      files: [attachment],
-    });
+      await interaction.editReply({
+        embeds: [recipeEmbed],
+        files: [attachment],
+      });
+    }
   },
 };
