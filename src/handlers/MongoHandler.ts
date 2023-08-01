@@ -1,9 +1,9 @@
 import { connect } from "mongoose";
-import { populateDatabase } from "./populateDatabase";
-import foodData from "./data/foods.json";
+import { populateDatabase } from "../database/populateDatabase";
+import foodData from "../database/data/foods.json";
 import FoodModel from "../models/FoodModel";
 
-export const connectDatabase = async () => {
+export const MongoHandler = async () => {
   console.log("Connecting to database...");
   await connect(process.env.MONGO_URI as string, {
     dbName: "valheim-recipe-bot",
