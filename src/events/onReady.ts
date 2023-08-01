@@ -29,6 +29,8 @@ module.exports = {
       console.log(
         `Successfully reloaded ${client.commands.size} application (/) commands.`
       );
+      console.log("Bot Ready!");
+      
     } catch (error) {
       console.error(error);
     }
