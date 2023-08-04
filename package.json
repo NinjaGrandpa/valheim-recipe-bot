@@ -5,6 +5,7 @@
   "main": "./prod/index.js",
   "scripts": {
     "build": "tsc",
+    "clean":"rm -rf ./prod/",
     "start": "node -r dotenv/config ./prod/index.js",
     "lint": "eslint . --ext .ts"
   },
