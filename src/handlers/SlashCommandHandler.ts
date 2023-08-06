@@ -14,7 +14,7 @@ export const SlashCommandHandler = (client: Client) => {
       file.endsWith(".js")
     );
 
-    for (const file of commandFiles) {
+    commandFiles.forEach((file) => {
       const filePath = join(commandsPath, file);
       const command = require(filePath);
 
@@ -25,6 +25,6 @@ export const SlashCommandHandler = (client: Client) => {
           `[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`
         );
       }
-    }
+    });
   });
 };
